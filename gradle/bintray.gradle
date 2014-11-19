@@ -13,6 +13,6 @@ bintray {
         name = attr 'name'
         desc = attr 'project_description'
         licenses = ['Apache-2.0']
-        labels = ['java','gradle'] // todo add to gradle.properties
+        labels = [attr('project_labels').split(",")]
     }
 }

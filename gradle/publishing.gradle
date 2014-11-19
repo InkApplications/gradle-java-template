@@ -21,7 +21,7 @@ publishing {
 
       pom.withXml {
         def Node root = asNode()
-        root.appendNode('name', 'Gradle Plugin for Groovy on Android')
+        root.appendNode('name', project.project_name)
         root.appendNode('description', project.project_description)
         root.appendNode('url', project.project_url)
 
@@ -35,15 +35,14 @@ publishing {
         scm.appendNode('developerConnection', project.project_dev_connection)
 
         def license = root.appendNode('licenses').appendNode('license');
-        license.appendNode('name', 'The Apache Software License, Version 2.0')
-        license.appendNode('url', 'http://www.apache.org/licenses/LICENSE-2.0.txt')
+        license.appendNode('name', project.project_license)
+        license.appendNode('url', project.project_license_url)
         license.appendNode('distribution', 'repo')
 
         def dev = root.appendNode('developers').appendNode('developer');
         dev.appendNode('id', project.project_vendor)
         dev.appendNode('name', project.project_vendor_name)
-        dev.appendNode('organization', 'Groovy')
-        dev.appendNode('organizationUrl', 'http://groovy.codehaus.org')
+        dev.appendNode('organizationUrl', project.project_org_url)
       }
     }
   }
